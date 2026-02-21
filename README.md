@@ -29,23 +29,28 @@ MySQL
 Postman
 
 ## API Endpoints
+
 Method	Endpoint	Description
+
 POST	/register	Register new user
+
 POST	/login	Authenticate user
+
 POST	/tasks	Create task (Protected)
+
 GET	/tasks	Get user tasks
 
 ## Setup Instructions
 
 Clone repository
 
-Create virtual environment
+Create virtual environment: 
 python -m venv venv
 
-Activate environment
+Activate environment: 
 source venv/bin/activate
 
-Install dependencies
+Install dependencies: 
 pip install -r requirements.txt
 
 Configure database credentials
