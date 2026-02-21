@@ -1,24 +1,54 @@
-# 🔐 Task Manager API
+# Task Manager API
 
 A JWT-authenticated REST API built using Flask and MySQL.
 
 ## Features
-- User Registration
-- Login Authentication
-- JWT Protected Routes
-- Create Tasks
-- View Tasks
+
+User Registration
+
+Secure Login Authentication
+
+JWT-based Authorization
+
+Protected CRUD Endpoints
+
+MySQL Relational Database Integration
+
+API Tested using Postman
 
 ## Tech Stack
-- Python
-- Flask
-- Flask-JWT-Extended
-- MySQL
+
+Python 3
+
+Flask
+
+Flask-JWT-Extended
+
+MySQL
+
+Postman
+
+## API Endpoints
+Method	Endpoint	Description
+POST	/register	Register new user
+POST	/login	Authenticate user
+POST	/tasks	Create task (Protected)
+GET	/tasks	Get user tasks
 
 ## Setup Instructions
 
-1. Clone repository
-2. Create virtual environment
-3. Install requirements
-4. Configure database
-5. Run app.py
+Clone repository
+
+Create virtual environment
+python -m venv venv
+
+Activate environment
+source venv/bin/activate
+
+Install dependencies
+pip install -r requirements.txt
+
+Configure database credentials
+
+Run application
+python app.py
