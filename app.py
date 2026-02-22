@@ -95,5 +95,49 @@ def get_tasks():
     return jsonify(tasks)
 
 
+
+
+# UPDATE TASK
+@app.route("/tasks/<int:task_id>", methods=["PUT"])
+@jwt_required()
+def update_task(task_id):
+    user_id = int(get_jwt_identity())
+    data = request.get_json()
+
+    title = data.get("title")
+    description = data.get("description")
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "UPDATE tasks SET title=%s, description=%s WHERE task_id=%s AND user_id=%s",
+        (title, description, task_id, user_id)
+    )
+    conn.commit()
+    conn.close()
+
+    return jsonify({"message": "Task updated"}), 200
+
+
+# DELETE TASK
+@app.route("/tasks/<int:task_id>", methods=["DELETE"])
+@jwt_required()
+def delete_task(task_id):
+    user_id = int(get_jwt_identity())
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "DELETE FROM tasks WHERE task_id=%s AND user_id=%s",
+        (task_id, user_id)
+    )
+    conn.commit()
+    conn.close()
+
+    return jsonify({"message": "Task deleted"}), 200
+
+
 if __name__ == "__main__":
     app.run(debug=True)
