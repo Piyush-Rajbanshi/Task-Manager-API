@@ -40,6 +40,10 @@ POST	/tasks	Create task (Protected)
 
 GET	/tasks	Get user tasks
 
+PUT /tasks Update user tasks
+
+DELETE /tasks Delete user tasks
+
 ## Setup Instructions
 
 Clone repository
